@@ -1,0 +1,15 @@
+.Logado{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-size: .85rem;
+}
+
+.Logado img{
+    height: 3.2rem;
+    border-radius: 50%;
+    margin-right: .5rem;
+    /* border: 1px solid #f1f1f1; */
+    box-shadow: 0 0 10px -2px rgba(var(--preto), .3);
+}
