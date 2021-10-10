@@ -1,4 +1,4 @@
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/client'
 import MenuDash from '../menu'
 
 import { CgHomeAlt } from 'react-icons/cg'
@@ -8,7 +8,7 @@ import style from './header.module.css'
 import Link from 'next/link'
 
 export default function Header() {
-    const [ session  ] = useSession() 
+    const [ session ] = useSession() 
     return (
         <>
         <header className={style.header}>  

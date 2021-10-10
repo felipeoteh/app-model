@@ -54,15 +54,17 @@
 .active{
     color: rgba(var(--primaria), 1) !important;
     background: #f1f1f1 !important;
+    border-top-left-radius: 30px !important;
+    border-bottom-left-radius: 30px !important;
 }
 
 .active:after{
     content: "";
-    width: 20px;
-    height: 100%;
+    width: 25px;
+    height: 120%;
     position: absolute;
     right: -1rem;
-    top: 0;
+    top: -10%;
     background: #f1f1f1;
 }
 
@@ -77,5 +79,33 @@
 .MenuDash svg{
     height: 1.6rem;
     width: 1.6rem;
+}
+
+.MenuDash li{
+    position: relative;
+}
+
+.MenuDash li:before{
+    content: "";
+    height: 10px;
+    background: #04a5ba;
+    display: block;
+    position: relative;
+    right: -16px;
+    top: 0px;
+    z-index: 10;
+    border-bottom-right-radius: 8px;
+}
+
+.MenuDash li:after{
+    content: "";
+    height: 10px;
+    background: #04a5ba;
+    display: block;
+    position: relative;
+    right: -16px;
+    top: 0px;
+    z-index: 10;
+    border-top-right-radius: 8px;
 }
 
