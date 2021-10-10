@@ -10,22 +10,24 @@ import Link from 'next/link'
 export default function Header() {
     const [ session  ] = useSession() 
     return (
-    <header className={style.header}>  
-        <div>   
-            <Link href="/" >       
-                <a className={style.logo}>
-                    Logo <b>SaaS</b>
-                </a>
-            </Link>  
-        </div>
+        <>
+        <header className={style.header}>  
+            <div>   
+                <Link href="/" >       
+                    <a className={style.logo}>
+                        Logo <b>SaaS</b>
+                    </a>
+                </Link>  
+            </div>
 
-        <div className="MenuDash">
-            <MenuDash />
-                <ul className={style.MenuDash}>
-                    <li><Link href="/"><a><CgHomeAlt/> Home</a></Link></li>
-                </ul>
-            <MenuDash />
-        </div>
-    </header>
+            <div className={style.MenuBox}>
+                <MenuDash />
+                    <ul className={style.MenuDash}>
+                        <li><Link href="/"><a className={style.active}><CgHomeAlt/> Home</a></Link></li>
+                    </ul>
+                <MenuDash />
+            </div>
+        </header>
+        </>
     )
 }
