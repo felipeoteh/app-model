@@ -9,17 +9,34 @@ import { signOut, useSession } from 'next-auth/client'
 import { useUser } from '../utils/providers/userBanco'
 import BoxAvatar from '../components/boxAvatar'
 
+import axios from "axios"
+
 export default function Home() { 
 
   const [ session, loading  ] = useSession() 
-  const { userBanco, setUserBanco } = useUser() 
+  const { userBanco, setUserBanco } = useUser({}) 
+  const [tutorial, setTutorial] = useState({})
 
-  /* console.log(userBanco?.theProducts) */
   
   const tenant = userBanco?.email  
-  const siteData = userBanco?.theProducts
   const UserEmailAuth = session?.user.email.includes(tenant) 
-  /* console.log('PRODUCTS: ', userBanco?.theProducts[0].company.products) */
+ 
+  async function handTutorial(){
+
+        let config = {
+            headers: {
+            Authorization: `bearer fc2edde3654171af1dfe6fd98fb16396`
+            }
+        }
+
+        const tutorial = await axios.get(`https://api.vimeo.com/tutorial`, config)
+        const vimeoRes = await tutorial.data
+
+        setTutorial(vimeoRes)
+
+    }
+
+    console.log(tutorial)
 
     return (    
       
@@ -51,6 +68,8 @@ export default function Home() {
             <div className="ContendDash PerfilPage">
               <h1 className={Style.Title}>Ambiente protegido</h1>
               
+              <p onClick={() => handTutorial()}>click vimeo</p>
+
 
             </div> 
           </div>

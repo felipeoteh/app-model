@@ -7,8 +7,11 @@ import style from './header.module.css'
 
 import Link from 'next/link'
 
+import { useState } from 'react'
+
 export default function Header() {
     const [ session ] = useSession() 
+
     return (
         <>
         <header className={style.header}>  

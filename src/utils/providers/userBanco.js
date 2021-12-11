@@ -7,18 +7,22 @@ const UserBancoContext = createContext()
 export default function UserBancoProvider( {children} ) {
 
     const [ session, loading ]       = useSession() 
-    const [ userBanco, setUserBanco] = useState({})  
+    const [ userBanco, setUserBanco] = useState([])  
     const pegaUserGoogle = session?.user.email
        
-    async function PegarNoBanco(){  
-        const res   = await axios.get(`/api/users?email=${pegaUserGoogle}`)
-        const pegarUser = await res.data[0]
-        setUserBanco(pegarUser) 
-    }  
+    useEffect( () => {
 
-/*     useEffect( () =>  { }, [])  */
+             
+        async function PegarNoBanco(){  
+            const res   = await axios.get(`/api/users?email=${pegaUserGoogle}`)
+            const pegarUser = await res.data[0]
+            setUserBanco(pegarUser) 
+        } 
+        PegarNoBanco()
+            
 
-    PegarNoBanco()      
+    }, [session])
+
 
     return (
         <UserBancoContext.Provider value={{ userBanco, setUserBanco }}>
