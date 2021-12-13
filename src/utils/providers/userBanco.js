@@ -11,8 +11,7 @@ export default function UserBancoProvider( {children} ) {
     const pegaUserGoogle = session?.user.email
        
     useEffect( () => {
-
-             
+   
         async function PegarNoBanco(){  
             const res   = await axios.get(`/api/users?email=${pegaUserGoogle}`)
             const pegarUser = await res.data[0]
@@ -20,7 +19,6 @@ export default function UserBancoProvider( {children} ) {
         } 
         PegarNoBanco()
             
-
     }, [session])
 
 
